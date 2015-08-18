@@ -28,7 +28,15 @@ public class DetailActivity extends AppCompatActivity {
         // show image
         showImage();
 
+        // show detail
+        showDetail();
+
     } // onCreate คือ Main Method
+
+    private void showDetail() {
+        String[] strDetail = getResources().getStringArray(R.array.detail);
+        detailTextView.setText(strDetail[getIntent().getIntExtra("Detail", 0)]);
+    }
 
     private void showImage() {
         int intImage = getIntent().getIntExtra("Image", R.drawable.traffic_01);
