@@ -22,8 +22,35 @@ public class MainActivity extends AppCompatActivity {
         // initial widget = การผูกตัวแปรที่ประกาศ
         initialWidget();
 
-
+        // create ListView
+        createListView();
     } // Main Method: this will first start when this class is called
+
+    private void createListView() {
+
+        String[] strTitle = new String[20];
+        strTitle[0] = "ห้ามเลี้ยวซ้าย";
+        strTitle[1] = "ห้ามเลี้ยวขวา";
+        strTitle[2] = "ตรงไป";
+        strTitle[3] = "เลี้ยวขวา";
+        strTitle[4] = "เลี้ยวซ้าย";
+        strTitle[5] = "ออก";
+        strTitle[6] = "เข้าสำหรับฝรั่ง";
+        strTitle[7] = "ออกสำหรับฝรั่ง";
+        strTitle[8] = "หยุด";
+        strTitle[9] = "จำกัดความสูงที่ 2.50 เมตร";
+        strTitle[10] = "ทางแยก";
+        strTitle[11] = "ห้ามกลับรถ";
+        strTitle[12] = "ห้ามจอด";
+        strTitle[13] = "ระวังรถสวน";
+        strTitle[14] = "ห้ามแซง";
+        strTitle[15] = "เข้า";
+        strTitle[16] = "หยุดตรวจ";
+        strTitle[17] = "จำกัดความเร็วที่ 50 ก.ม.";
+        strTitle[18] = "จำกัดความกว้างที่ 2.50 ม.";
+        strTitle[19] = "จำกัดความสูงที่ 5 ม.";
+    }
+
 
     private void initialWidget() {
         trafficListView = (ListView) findViewById(R.id.listView);
