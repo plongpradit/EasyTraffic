@@ -1,10 +1,13 @@
 package th.ac.pbru.lonmail.panchit.easytraffic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.ListViewCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,7 +67,17 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter objMyAdapter = new MyAdapter(MainActivity.this, intImage, strTitle);
         trafficListView.setAdapter(objMyAdapter);
 
-
+        // create ListView
+        // activate onClick on ListView เมื่อคลิกแล้วให้เกิดการตอบสนอง
+        trafficListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // i is used to specify the position of the click
+                // Intent (คำสั่ง link) to detail
+                Intent objIntent = new Intent(MainActivity.this, DetailActivity.class);
+                startActivity(objIntent);
+            }
+        });
 
     }
 
