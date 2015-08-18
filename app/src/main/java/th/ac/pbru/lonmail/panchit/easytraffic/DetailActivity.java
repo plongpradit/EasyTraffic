@@ -4,13 +4,49 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
+
+    // Explicit, if we don't specify private, it will be private by default
+    TextView titleTextView, detailTextView;
+    ImageView trafficImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        // bind Widget (ผูกตัวแปร) = mapping point = initial widget
+        bindWidget();
+
+        // show title
+        showTitle();
+
+        // show image
+        showImage();
+
+    } // onCreate คือ Main Method
+
+    private void showImage() {
+        int intImage = getIntent().getIntExtra("Image", R.drawable.traffic_01);
+        trafficImageView.setImageResource(intImage);
+
+    }
+
+    private void showTitle() {
+        // receive from intent
+        String strTitle = getIntent().getStringExtra("Title"); // คำสั่งนี้ใช้ในการรับค่า
+        titleTextView.setText(strTitle);
+
+    }
+
+    private void bindWidget() {
+        titleTextView = (TextView) findViewById(R.id.txtTitleDetail);
+        detailTextView = (TextView) findViewById(R.id.txtDetail);
+        trafficImageView = (ImageView) findViewById(R.id.imvTrafficDetail);
     }
 
     @Override
@@ -34,4 +70,4 @@ public class DetailActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+} // main Class
