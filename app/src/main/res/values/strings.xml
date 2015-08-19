@@ -7,4 +7,6 @@
     <string name="head">ป้ายจราจร</string>
     <string name="test">ทดสอบ</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="h1">25sp</string>
 </resources>

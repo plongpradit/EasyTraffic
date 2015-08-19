@@ -33,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
 
     } // onCreate คือ Main Method
 
-    private void showDetail() {
+   private void showDetail() {
         String[] strDetail = getResources().getStringArray(R.array.detail);
         detailTextView.setText(strDetail[getIntent().getIntExtra("Detail", 0)]);
     }
