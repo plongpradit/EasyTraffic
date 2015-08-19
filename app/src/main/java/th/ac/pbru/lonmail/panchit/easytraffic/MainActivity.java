@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.traffic_12, R.drawable.traffic_13,
                 R.drawable.traffic_14, R.drawable.traffic_15,
                 R.drawable.traffic_16, R.drawable.traffic_17,
-                R.drawable.traffic_18, R.drawable.traffic_19, R.drawable.traffic_20};
+                R.drawable.traffic_18, R.drawable.traffic_19,
+                R.drawable.traffic_20};
 
 
         MyAdapter objMyAdapter = new MyAdapter(MainActivity.this, intImage, strTitle);
