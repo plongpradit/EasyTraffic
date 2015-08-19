@@ -29,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         createListView();
     } // Main Method: this will first start when this class is called
 
+
+    // this method will be called from outside, so making it public
+    // void is a no return function
+    public void clickTest(View view) {
+        startActivity(new Intent(this, TestActivity.class));
+    }
+
     private void createListView() {
         // to explicit array Type A
         final String[] strTitle = new String[20];
