@@ -50,6 +50,7 @@ public class TestActivity extends AppCompatActivity {
             // toast คือ การ alert
             // lenght-short lasts 4 sec
         } else {
+            checkScore();
             myModel();
         }
 
@@ -62,7 +63,7 @@ public class TestActivity extends AppCompatActivity {
         } else {
 
             // Check Score
-            checkScore();
+            // checkScore();
 
             indexAnInt += 1;
 
@@ -159,11 +160,8 @@ public class TestActivity extends AppCompatActivity {
                         radioAnInt = 0;
                         break;
                 }
-
             }
         });
-
-
     }
 
     // การดึง method สำเร็จรูป จะใช้ override
@@ -185,6 +183,10 @@ public class TestActivity extends AppCompatActivity {
         imageInts[7] = R.drawable.traffic_08;
         imageInts[8] = R.drawable.traffic_09;
         imageInts[9] = R.drawable.traffic_10;
+
+        // เพิ่มคำสั่ง
+        indexAnInt = 0; // เพื่อ clear ค่าพื้นฐานเริ่มต้นให้เป็น 0 จะได้เริ่มต้นเล่นใหม่ได้
+        scoreAnInt = 0; // เพื่อ clear ค่าพื้นฐานเริ่มต้นให้เป็น 0 จะได้เริ่มต้นเล่นใหม่ได้
 
         // 8.3 can only be used here and only once
         String[] strChoice = getResources().getStringArray(R.array.times1);
