@@ -1,5 +1,9 @@
 package th.ac.pbru.lonmail.panchit.easytraffic;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,7 +25,7 @@ public class TestActivity extends AppCompatActivity {
     private String[] questionStrings;
     private int[] imageInts;
     // 10 ประกาศตัวแปรเพิ่ม
-    private int radioAnInt, indexAnInt; // สำหรับการเลือกคำตอบ
+    private int radioAnInt, indexAnInt,scoreAnInt; // สำหรับการเลือกคำตอบ
 
 
     @Override
@@ -47,8 +51,6 @@ public class TestActivity extends AppCompatActivity {
             // lenght-short lasts 4 sec
         } else {
             myModel();
-
-
         }
 
 
@@ -58,15 +60,30 @@ public class TestActivity extends AppCompatActivity {
         if (indexAnInt == 9) {
             showAnswerDialog();
         } else {
+
+            // Check Score
+            checkScore();
+
             indexAnInt += 1;
+
 
             // changeView method
             changeView(indexAnInt);
+
+            // Clear Check
+            choiceRadioGroup.clearCheck();
 
         }
 
 
     } //myModel method
+
+    private void checkScore() {
+        int[] intTrueAnswer = {1, 2, 3, 4, 1, 2, 3, 4, 1, 2};
+        if (radioAnInt == intTrueAnswer[indexAnInt]) {
+            scoreAnInt++;
+        }
+    }
 
     private void changeView(int anInt) {
         // Change Question when the user clicks Answer
@@ -94,8 +111,29 @@ public class TestActivity extends AppCompatActivity {
 
 
     private void showAnswerDialog() {
-
-    }
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this); // class used for creating alert message
+        objBuilder.setIcon(R.drawable.icon_myaccount);
+        objBuilder.setTitle("คะแนนสอบของคุณ");
+        objBuilder.setMessage("คะแนนที่คุณสอบได้ " + Integer.toString(scoreAnInt) + "คะแนน");
+        objBuilder.setCancelable(false);
+        objBuilder.setNegativeButton("เล่นอีกครั้ง", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                onStart();
+                choiceRadioGroup.clearCheck();
+                dialogInterface.dismiss();
+            }
+        });
+        objBuilder.setPositiveButton("อ่านบทเรียน", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent objIntent = new Intent(TestActivity.this, MainActivity.class);
+                startActivity(objIntent);
+                dialogInterface.dismiss();
+            }
+        });
+        objBuilder.show();
+    } // showAnswerDialog
 
 
     private void radioController() {
