@@ -31,7 +31,7 @@
         <ImageView
             android:layout_width="@dimen/image"
             android:layout_height="@dimen/image"
-            android:id="@+id/imvTrafficDetail"
+            android:id="@+id/imvTrafficTest"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp" />
 
@@ -70,7 +70,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Answser"
+        android:onClick="clickAnswer"
+        android:text="Answer"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="false"
