@@ -69,10 +69,28 @@ public class TestActivity extends AppCompatActivity {
     } //myModel method
 
     private void changeView(int anInt) {
-        // Change Question
+        // Change Question when the user clicks Answer
         questionTextView.setText(questionStrings[anInt]);
 
-    }
+        // Change Image when click Answer
+        trafficImageView.setImageResource(imageInts[anInt]);
+
+
+        // Change Choices when click Answer
+        int[] intTimes = {R.array.times1, R.array.times2,
+                R.array.times3, R.array.times4,
+                R.array.times5, R.array.times6,
+                R.array.times7, R.array.times8,
+                R.array.times9, R.array.times10};
+        String[] strChoice = getResources().getStringArray(intTimes[anInt]);
+        choice1RadioButton.setText(strChoice[0]);
+        choice2RadioButton.setText(strChoice[1]);
+        choice3RadioButton.setText(strChoice[2]);
+        choice4RadioButton.setText(strChoice[3]);
+
+        //
+
+    } // changeView
 
 
     private void showAnswerDialog() {
